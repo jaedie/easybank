@@ -30,7 +30,7 @@ button,
 .button {
   font-size: 14px;
   padding: 0.875rem 2.1875rem;
-  background: linear-gradient(to right, $limeGreen, $brightCyan);
+  background: $mainGradient;
   border-radius: 50px;
   border: 0;
   cursor: pointer;
