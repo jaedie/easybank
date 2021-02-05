@@ -1,7 +1,8 @@
 .header {
   nav {
-    padding: 24px;
+    padding: 1.0625rem 1.5rem;
   }
+
   &__logo {
     img {
       width: 8.8125rem;
@@ -15,19 +16,69 @@
       width: 26px;
       height: 2px;
       background-color: $darkBlue;
+      transition: transform 300ms ease-in-out;
+      transform-origin: 3px 1px;
 
       &:not(:last-child) {
-        margin-bottom: 3px;
+        margin-bottom: 5px;
+      }
+    }
+
+    &.open {
+      > span:first-child {
+        transform: rotate(45deg);
+      }
+
+      > span:nth-child(2) {
+        opacity: 0;
+      }
+
+      > span:last-child {
+        transform: rotate(-45deg);
       }
     }
   }
+
   &__links {
     a {
+      position: relative;
       font-size: $font-sm;
+      transition: all 300ms ease-in-out;
+      transition-property: color;
 
       &:not(:last-child) {
         margin-right: 32px;
       }
+
+      &:before {
+        position: absolute;
+        content: "";
+        height: 5px;
+        left: 0;
+        right: 0;
+        bottom: -30px;
+        background: $mainGradient;
+        opacity: 0;
+        transition: opacity 300ms ease-in-out;
+      }
+
+      &:hover {
+        color: $darkBlue;
+
+        &:before {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  &__cta {
+    font-size: $font-sm;
+    color: $white;
+    transition: opacity 300ms ease-in-out;
+
+    &:hover {
+      opacity: 0.75;
     }
   }
 }
